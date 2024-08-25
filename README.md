@@ -1,7 +1,9 @@
-# Stacked Git
+# stg1
 
-Stacked Git, **StGit** for short, is an application for managing Git
-commits as a stack of patches.
+[Stacked Git](https://github.com/stacked-git/stgit), **StGit** for short, is an
+application for managing Git commits as a stack of patches.
+
+`stg1` is a fork of StGit version 1.5, i.e. before StGit was rewritten in Rust.
 
 With a *patch stack* workflow, multiple patches can be developed
 concurrently and efficiently, with each patch focused on a single
@@ -38,22 +40,6 @@ StGit supports Python versions >= 3.5.
 StGit works within the context of a Git repository by running `git`
 commands. [Git](https://git-scm.com) 2.2.0 or newer is required.
 
-### Package Repositories
-
-Recent versions of StGit are available via many package repositories
-such as [HomeBrew](https://formulae.brew.sh/formula/stgit) and for many
-Linux distributions including:
-[Alpine](https://pkgs.alpinelinux.org/packages?name=stgit),
-[Arch](https://aur.archlinux.org/packages/stgit),
-[Fedora](https://src.fedoraproject.org/rpms/stgit),
-[Nix](https://nixos.org/nixos/packages.html?attr=gitAndTools.stgit) and
-[Ubuntu](https://packages.ubuntu.com/source/focal/stgit).
-
-More details about StGit packages availability for various operating
-systems can be [found on repology][repology].
-
-[repology]: https://repology.org/project/stgit/versions
-
 ### Source Installation
 
 StGit may also be installed from source. Download the [latest
@@ -77,6 +63,8 @@ to StGit.
 
 ## Maintainers
 
-StGit is maintained by Catalin Marinas and Peter Grayson.
+stg1 is maintained by J. Neuschäfer.
+
+Special thanks to Catalin Marinas and Peter Grayson.
 
 For a complete list of StGit's authors, see [AUTHORS.md](AUTHORS.md).
