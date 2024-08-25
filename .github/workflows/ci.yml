@@ -11,17 +11,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: git fetch --prune --unshallow origin +refs/tags/*:refs/tags/*
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Build
       run: |
         python setup.py sdist
     - name: Upload dist
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: "dist/*"
@@ -29,10 +29,10 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: git fetch --prune --unshallow origin +refs/tags/*:refs/tags/*
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install dependencies
@@ -49,7 +49,7 @@ jobs:
       run: |
         make -j2 -C Documentation USE_ASCIIDOCTOR=1 htmldir="$GITHUB_WORKSPACE"/stgit-html install-html
     - name: Upload HTML Docs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: html-doc
         path: ${{ github.workspace }}/stgit-html
@@ -57,10 +57,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: git fetch --prune --unshallow origin +refs/tags/*:refs/tags/*
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install dependencies
@@ -78,10 +78,10 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: git fetch --prune --unshallow origin +refs/tags/*:refs/tags/*
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install dependencies
@@ -99,7 +99,7 @@ jobs:
         make coverage-report
 
     - name: Upload HTML Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: htmlcov
         path: "htmlcov/"
@@ -128,10 +128,10 @@ jobs:
           - '3.13'
           #- '3.14'
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: git fetch --prune --unshallow origin +refs/tags/*:refs/tags/*
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
