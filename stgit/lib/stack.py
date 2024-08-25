@@ -1,4 +1,5 @@
 """A Python class hierarchy wrapping the StGit on-disk metadata."""
+
 import re
 
 from stgit.config import config
