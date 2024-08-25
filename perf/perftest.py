@@ -48,7 +48,7 @@ class Run:
         ttime = sum(times)
         cl = max(len(pcmd(c)) for c in cs)
         tl = max(len(ptime(t)) for t in list(times) + [ttime])
-        for (c, t) in self.__log:
+        for c, t in self.__log:
             print('%*s  %*s' % (tl, ptime(t), -cl, pcmd(c)))
         print('%*s' % (tl, ptime(ttime)))
 
@@ -108,7 +108,7 @@ def def_rebasetest(rebase, dir, tag):
 
 
 for rebase in ['old', 'new']:
-    for (dir, tag) in [
+    for dir, tag in [
         ('synt', 'add-file'),
         ('synt', 'modify-all'),
         ('linux', 'add-file'),
@@ -117,7 +117,7 @@ for rebase in ['old', 'new']:
 
 args = sys.argv[1:]
 if len(args) == 0:
-    for (fun, desc) in sorted(perftestdesc.items()):
+    for fun, desc in sorted(perftestdesc.items()):
         print('%s: %s' % (fun, desc))
 else:
     for test in args:
