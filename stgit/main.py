@@ -48,7 +48,7 @@ def is_cmd_alias(cmd):
 
 
 def append_alias_commands(cmd_list):
-    for (name, command) in config.getstartswith('stgit.alias.'):
+    for name, command in config.getstartswith('stgit.alias.'):
         name = utils.strip_prefix('stgit.alias.', name)
         cmd_list.append((name, CommandAlias(name, command), 'Alias commands', command))
 
@@ -198,7 +198,7 @@ def _main(argv):
         return utils.STGIT_COMMAND_ERROR
     except KeyboardInterrupt:
         return utils.STGIT_GENERAL_ERROR
-    except BaseException:
+    except Exception:
         out.error('Unhandled exception:')
         traceback.print_exc(file=sys.stderr)
         return utils.STGIT_BUG_ERROR
