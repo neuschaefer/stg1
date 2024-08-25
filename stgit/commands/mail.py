@@ -870,7 +870,7 @@ def func(parser, options, args):
         if tmpl is None:
             raise CmdException('No e-mail template file found')
 
-    for (p, n) in zip(patches, range(1, total_nr + 1)):
+    for p, n in zip(patches, range(1, total_nr + 1)):
         msg_id = __send_message('patch', tmpl, options, p, n, total_nr, ref_id)
 
         # subsequent e-mails are seen as replies to the first one

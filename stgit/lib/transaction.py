@@ -1,7 +1,6 @@
 """The L{StackTransaction} class makes it possible to make complex
 updates to an StGit stack in a safe and convenient way."""
 
-
 import atexit
 from itertools import takewhile
 
