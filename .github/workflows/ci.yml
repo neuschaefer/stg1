@@ -83,7 +83,7 @@ jobs:
     - name: Install dependencies
       run: |
         make dev-env
-        python -m pip install coveralls coverage[toml]
+        python -m pip install coveralls coverage[toml] asciidoc
         sudo apt-get update
         sudo apt-get install quilt gnupg2 asciidoc asciidoctor docbook-xsl-ns xmlto
     - name: Coverage Test
