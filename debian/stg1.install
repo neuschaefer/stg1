@@ -1,0 +1,4 @@
+#! /usr/bin/dh-exec
+#/usr/share/stg1/examples => /usr/share/doc/stg1/examples
+/usr
+completion/stgit.bash => /usr/share/bash-completion/completions/stg
