@@ -1,7 +1,7 @@
-Source: stgit
+Source: stg1
 Section: vcs
 Priority: optional
-Maintainer: Maximiliano Curia <maxy@debian.org>
+Maintainer: J. Neuschäfer <j.ne@posteo.net>
 Build-Depends: asciidoc,
                debhelper (>= 12~),
                dh-exec,
@@ -15,7 +15,7 @@ Homepage: http://www.procode.org/stgit/
 Vcs-Browser: https://salsa.debian.org/debian/stgit
 Vcs-Git: https://salsa.debian.org/debian/stgit.git
 
-Package: stgit
+Package: stg1
 Architecture: all
 Depends: git, ${misc:Depends}, ${python3:Depends}
 Description: manage stacks of patches in a git repository
@@ -26,7 +26,7 @@ Description: manage stacks of patches in a git repository
  are stored as git commit objects, allowing easy merging of the stgit
  patches into other repositories using standard git functionality.
 
-Package: stgit-contrib
+Package: stg1-contrib
 Architecture: all
 Depends: colordiff, stgit, ${misc:Depends}, ${python3:Depends}
 Description: set of contributed script to help working with stgit
