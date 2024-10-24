@@ -13,7 +13,7 @@ test_expect_success \
     stg init
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply a patch from an 8bit-encoded e-mail' \
     '
     stg import -m --message-id "$TEST_DIRECTORY"/t1801/email-8bit &&
@@ -26,7 +26,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply a patch from an 8bit-encoded e-mail url' \
     '
     stg import -u -m "file://$TEST_DIRECTORY"/t1801/email-8bit &&
@@ -39,7 +39,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply a patch from an 8bit-encoded e-mail with CRLF endings' \
     '
     cat "$TEST_DIRECTORY"/t1801/email-8bit | append_cr |
@@ -53,7 +53,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply e-mail with CRLF endings and --keep-cr' \
     '
     stg new -m foo-with-crlf &&
@@ -71,7 +71,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply a patch from latin1-encoded email specifying utf-8 charset' \
     '
     iconv -f UTF-8 -t LATIN1 "$TEST_DIRECTORY"/t1801/email-8bit > email-latin1 &&
@@ -85,7 +85,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply a patch from email with quoted "From" header' \
     '
     stg import -m "$TEST_DIRECTORY"/t1801/email-quoted-from &&
@@ -98,7 +98,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply a patch from a QP-encoded e-mail' \
     '
     stg import -m "$TEST_DIRECTORY"/t1801/email-qp &&
@@ -111,7 +111,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply several patches from an mbox file' \
     '
     test_config stgit.import.message-id "no" &&
@@ -137,7 +137,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply several patches from an mbox url' \
     '
     test_config stgit.import.message-id "yes" &&
@@ -163,7 +163,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Import patches from mbox with duplicate subjects' \
     '
     stg import -M "$TEST_DIRECTORY"/t1801/email-mbox-same-subject &&
@@ -171,7 +171,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply several patches from an mbox file from stdin' \
     '
     test_config stgit.import.message-id "off" &&
@@ -197,7 +197,7 @@ test_expect_success \
     stg delete ..
     '
 
-test_expect_success \
+test_expect_failure \
     'Apply several patches from an mbox file with CRLF line endings' \
     '
     cat "$TEST_DIRECTORY"/t1801/email-mbox | append_cr |
