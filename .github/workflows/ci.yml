@@ -140,4 +140,5 @@ jobs:
         STG_PROVE_OPTS: "--jobs=2"
         STG_TEST_OPTS: "--verbose-log"
       run: |
+        make dev-env
         timeout 1000s make test
