@@ -1,0 +1,5 @@
+use_editor_as_default
+stg-gitk_bashism
+disable_interactive_test
+Avoid-the-git-error-messages-when-running-stg-outside-of-.patch
+reproducible_build

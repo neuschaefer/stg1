@@ -1,0 +1,33 @@
+Description: Make the build reproducible
+Author: Chris Lamb <lamby@debian.org>
+Last-Update: 2019-10-08
+
+--- stgit-0.19.orig/stgit/argparse.py
++++ stgit-0.19/stgit/argparse.py
+@@ -260,7 +260,7 @@ class CompgenBase(object):
+             cmd += ['-A', act]
+         words = self.words(var)
+         if words:
+-            cmd += ['-W', '"%s"' % ' '.join(words)]
++            cmd += ['-W', '"%s"' % ' '.join(sorted(words))]
+         cmd += ['--', '"%s"' % var]
+         return ' '.join(cmd)
+ 
+@@ -310,4 +310,4 @@ class patch_range(CompgenBase):
+         for e in self.__endpoints:
+             assert not e.actions(var)
+             words |= e.words(var)
+-        return set(['$(_patch_range "%s" "%s")' % (' '.join(words), var)])
++        return set(['$(_patch_range "%s" "%s")' % (' '.join(sorted(words)), var)])
+
+--- stgit-0.19.orig/stgit/commands/__init__.py
++++ stgit-0.19/stgit/commands/__init__.py
+@@ -63,7 +63,7 @@
+ def py_commands(commands, f):
+     f.write('from __future__ import unicode_literals\n\n')
+     f.write('command_list = {\n')
+-    for name, (mod, kind, help) in commands.items():
++    for name, (mod, kind, help) in sorted(commands.items()):
+         f.write('    %r: (\n' % name)
+         f.write('        %r,\n' % mod)
+         f.write('        %r,\n' % kind)
