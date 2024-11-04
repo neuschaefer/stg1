@@ -65,16 +65,16 @@ def get_patch_description(repo, cd, patch_name, append_diff, diff_flags):
 
     """
     commit_encoding = config.get('i18n.commitencoding')
-    desc = '\n'.join(
-        [
-            'Patch: %s' % patch_name,
-            'From: %s' % cd.author.name_email,
-            'Date: %s' % cd.author.date.isoformat(),
-            '',
-            cd.message_str,
-            EDIT_MESSAGE_INSTRUCTIONS,
-        ]
-    ).encode(commit_encoding)
+    desc = [
+        'Patch: %s' % patch_name,
+        'From: %s' % cd.author.name_email,
+        'Date: %s' % cd.author.date.isoformat(),
+        '',
+        cd.message_str,
+    ]
+    if config.get('stgit.message-instructions') == 'yes':
+        desc.append(EDIT_MESSAGE_INSTRUCTIONS)
+    desc = '\n'.join(desc).encode(commit_encoding)
     if append_diff:
         parts = [desc.rstrip(), b'---', b'']
         diff = repo.diff_tree(

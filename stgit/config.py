@@ -41,6 +41,7 @@ DEFAULTS = [
     ('stgit.series.description', ['no']),
     ('stgit.smtpdelay', ['5']),
     ('stgit.smtpserver', ['localhost:25']),
+    ('stgit.message-instructions', ['yes']),
 ]
 
 
