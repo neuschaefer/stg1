@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.6] 2025-01-21
+
+Version 1.6 is the first release of _stg1_, fork of StGit 1.5.
+Other than that, nothing much changed.
+
 ## [1.5] 2022-01-28
 
 ### Removed
